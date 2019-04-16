@@ -38,7 +38,8 @@ namespace SimpleLoggingService
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("MVC fell through!");
+                context.Response.StatusCode = 404;
+                await context.Response.WriteAsync("Incorrect API call");
             });
         }
     }
