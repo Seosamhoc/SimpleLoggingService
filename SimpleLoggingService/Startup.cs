@@ -22,7 +22,8 @@ namespace SimpleLoggingService
         }
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<LogInfoContext>(options => options.UseInMemoryDatabase("LogInfo"));
+            services.AddDbContext<LogInfoContext>(options => options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc();
         }
 
